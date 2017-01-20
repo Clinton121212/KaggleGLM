@@ -123,14 +123,15 @@ def send_to_gropo_sub(CLF,Test,use_vars):
     df.to_csv('sub.csv',index=False)
 
 
-def junk_test_SMWrapepr():
+def junk_test_SMWrapepr(PATH):
     '''
     Junk to test wrapper for stats model glm
     '''
     
-    df=pd.read_csv('/Users/clinton1212/Desktop/Grupo_Bimbo_kaggle_7_7_2016/train.csv'\
-    ,nrows=100,usecols=['Semana', 'Agencia_ID', 'Canal_ID', 'Ruta_SAK', 'Cliente_ID',\
+    df=pd.read_csv(PATH,nrows=100,\
+    usecols=['Semana', 'Agencia_ID', 'Canal_ID', 'Ruta_SAK', 'Cliente_ID',\
                             'Producto_ID','Demanda_uni_equil'])
+                            
     family_link = sm.families.Poisson(sm.families.links.log)
     new_names=['a','b','c','d','e','f','g']
     df.columns=new_names  
